@@ -28,9 +28,9 @@ class Bookmyshow:
 
         buy_ticket = Bytes("buy_ticket")
         get_product_info = Bytes("get_product_info")
-	      add_show = Bytes("add_show")
-	     update_show_details = Bytes("update_show_details")
-	      cancel_booking = Bytes("cancel_booking")
+	add_show = Bytes("add_show")
+	update_show_details = Bytes("update_show_details")
+	cancel_booking = Bytes("cancel_booking")
 	
     def application_creation(self):
 
