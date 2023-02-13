@@ -1,8 +1,8 @@
 from pyteal import * 
   
- from Bookmyshow import Bookmyshow 
+from Bookmyshow import Bookmyshow 
   
- if __name__ == "__main__": 
+if __name__ == "__main__": 
      approval_program = Bookmyshow().approval_program() 
      clear_program = Bookmyshow().clear_program() 
   
