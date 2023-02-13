@@ -27,7 +27,7 @@ class Bookmyshow:
     class AppMethods:
 
         buy_ticket = Bytes("buy_ticket")
-
+        get_product_info = Bytes("get_product_info")
 	
 	
     def application_creation(self):
