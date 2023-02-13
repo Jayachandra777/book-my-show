@@ -26,8 +26,10 @@ class Bookmyshow:
 
     class AppMethods:
 
-        buy = Bytes("buy")
+        buy_ticket = Bytes("buy_ticket")
 
+	
+	
     def application_creation(self):
 
         return Seq([
@@ -217,7 +219,32 @@ def cancel_booking(self):
         return If(valid_conditions).Then(update_state).Else(Reject())
 			
 			
+def application_deletion(self):
 
+    return Return(Txn.sender() == Global.creator_address())
+
+def application_start(self):
+
+    return Cond(
+
+        [Txn.application_id() == Int(0), self.application_creation()],
+
+        [Txn.on_completion() == OnComplete.DeleteApplication, self.application_deletion()],
+
+        [Txn.application_args[0] == self.AppMethods.buy, self.buy_ticket()],
+
+        [Txn.application_args[0] == self.AppMethods.show_info, self.get_product_info()],
+
+        [Txn.application_args[0] == self.AppMethods.add_show, self.add_show()],
+
+    )
+def approval_program(self):
+
+    return self.application_start()
+
+def clear_program(self):
+
+    return Return(Int(1))
 			
 			
 			
